@@ -1,26 +1,10 @@
 import ProjectList from '@/components/ProjectList'
+import { getProjects } from '@/lib/projects-db'
 
-//const projects = [
-//  {
-//    title: 'Smoothie Receipes App',
-//    description: 'A Backend Express.js app with frontend for viewing smoothies receipes.',
-//    technologies: ['Express.js', 'JavaScript', 'HTML', 'CSS', 'MongoDB'],
-//    link: 'https://github.com/Ekg23/smoothie-login-app'
-//
-//  },
-//
-//  {
-//    title: 'Art Gallery App',
-//    description: 'A frontend app for viewing art, art history and artist.',
-//    technologies: ['JavaScript', 'HTML', 'CSS'],
-//    link: 'https://github.com/Ekg23/WDD-330-Final-Project'
-//  }
-//];
 
 export default async function Home() {
 
-  const response = await fetch('http://localhost:3000/api/projects')
-  const projects = await response.json()
+  const projects = await getProjects()
   return (
     <main className="container mx-auto px-4 py-12">
       <section className="text-center py-12">
